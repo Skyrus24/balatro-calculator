@@ -1,15 +1,21 @@
 def leer_bool(texto):
-    return input(texto).strip().lower() == "true"
+    texto = input(texto).strip().lower()
+    if texto == "y":
+        return True
+    elif texto == "n":
+        return False
+    else:
+        raise ValueError("Entrada no válida. Por favor, ingrese 'y' o 'n'.")
 
 # Inputs
-chips = float(input("Ingrese los chips base: "))
-mult = float(input("Ingrese el mult base: "))
-mano = int(input("Ingrese el tamaño de la mano: "))
+nivel = int(input("Ingrese el nivel de hc: "))
 
+chips = 5 + (nivel-1) * 5
+mult = nivel
+mano = int(input("Ingrese el tamaño de la mano: "))
 mimo = int(input("Cantidad de Mimos: "))
 baron = int(input("Cantidad de Barones: "))
-
-plasma = leer_bool("¿Usar baraja Plasma? (True/False): ")
+plasma = leer_bool("¿Usar baraja Plasma? (y/n): ")
 
 # Cartas en mano (High Card)
 k = mano - 1
