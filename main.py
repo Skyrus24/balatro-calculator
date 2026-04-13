@@ -24,21 +24,16 @@ k = mano - 1
 triggers = mimo + 2
 
 # Multiplicador total
-multiplicador_total = 1.5 ** (k * triggers * (baron + 1))
-
-# Aplicar a mult
-mult_final = mult * multiplicador_total
-chips_final = chips
+multiplicador_total = mult * (1.5 ** (k * triggers * (baron + 1)))
 
 # Resultado final
 if plasma:
-    total = (chips_final + mult_final) / 2
+    total = (chips + multiplicador_total) / 2
 else:
-    total = chips_final * mult_final
+    total = chips * multiplicador_total
 
 # Output
 print("Cartas en mano:", k)
 print("Triggers:", triggers)
 print("Multiplicador:", multiplicador_total)
-print("Mult final:", mult_final)
 print("Resultado final:", total)
